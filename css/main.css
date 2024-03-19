@@ -1,27 +1,103 @@
 
 html, body {
-
+  background-color: var(--background) !important;
   margin: 0;
   padding: 0;
   height: 100%; 
-  }
-
-
-
+}
 
 div {
-  outline: 2px dashed blue;
+  /*outline: 2px dashed blue;*/
+}
+
+a {
+  text-decoration: none !important;
+  color: var(--text);
+}
+
+a:link {
+  color: var(--text);
+}
+
+a:visited {
+  color: var(--text);
+}
+
+a:hover{
+  color: var(--textHover);
+  text-decoration:none; 
+  cursor:pointer;
+}
+
+a:active {
+  color: var(--text);
+}
+
+.svgIcon {
+  fill: var(--icon);
+}
+
+.svgIcon:hover {
+  fill: var(--iconHover);
+}
+
+.glyphicon {
+  font-size: 30px;
+  color: var(--icon);
+}
+
+.glyphicon:hover {
+  color: var(--iconHover);
 }
 
 
+/* Colour variables */
+:root {
+  --background:rgb(28, 28, 38);
+  --icon:rgb(140, 140, 140);
+  --iconHover:rgb(255, 255, 255);
+  --text:rgb(140, 140, 140);
+  --textHover:rgb(255, 255, 255);
+  --accent:rgb(255, 102, 0);
+  --accentHover:rgb(255, 132, 50);
+}
+
+.placeholderTile{
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+}
+
+.placeholderContainer{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+
+.placeholderItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.accent{
+  background-color: var(--accent);
+}
+
+.accent:hover{
+  background-color: var(--accentHover);
+}
 
 /* */
 .fileBar{
   position: relative; 
   width: 100%;
-  height: 5vh;
   top: 0px;
   left: 0px;
+  border-bottom: 1px solid grey;
   display:inline-block; 
 }
 
@@ -29,17 +105,115 @@ div {
 .center{
   position: relative; 
   width: 100%;
-  height: 55vh;
-  float:left;
-  display:inline-block; 
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
 }
 
 .timeContainer{
   position: relative; 
   width: 100%;
-  height: 40vh;
   float:left;
   display:inline-block; 
+}
+
+/* Dropdown menus from W3 Schools */
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--background);
+  color: var(--text);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #949494;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  color: var(--textHover);
+}
+
+.sliderItem{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.sliderItem:last-child{
+  margin-bottom: 0px;
+}
+
+/* W3 Schools slider */
+.slidecontainer {
+  margin-top: 8px;
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 12px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  border-radius: 20px;
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  border-radius: 20px;
+  width: 8px; /* Set a specific slider handle width */
+  height: 24px; /* Slider handle height */
+  background: var(--accent);
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  border-radius: 20px;
+  width: 10px; /* Set a specific slider handle width */
+  height: 28px; /* Slider handle height */
+  background: var(--accent);
+  cursor: pointer; /* Cursor on hover */
 }
 
 /* */
@@ -47,66 +221,116 @@ div {
 
 
 /* center */
-.sideBar{
+.componentMenu{
   position: relative; 
-  width: 20%;
   height: 100%;
   float: left;
+  min-width: 79px;
+}
+
+.componentList{
+  border-right: 1px solid grey;
+  position: relative; 
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+.componentList:last-child{
+  margin: 0px;
+}
+
+.component{
+  padding: 5px;
+  margin-bottom: 15px;
+  position: relative; 
+  height: auto;
+  text-align: center;
+  fill: var(--icon);
+  color: var(--icon);
+  border: thick solid transparent;
+}
+
+.component:hover{
+  fill: var(--iconHover);
+  color: var(--iconHover);
+}
+
+.componentText{
+  font-size: 12px;
+}
+
+.componentPanel{
+  color: var(--text);
+}
+
+.componentIcon{
+  width: 56px;
 }
 
 
 .expandingMenu{
   position: relative; 
-  width: 30%;
+  width: 250px;
+  text-align: center;
   height: 100%;
   float: left;
+  border-right: 1px solid grey;
 }
 
+.player{
+  
+}
 
 .preview{
   position: relative; 
-  width: 30%;
-  height: 100%;
-  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid grey;
+  height: calc(100% - 35px);
 }
-
-
-.Properties{
-  position: relative; 
-  width: 20%;
-  height: 100%;
-  float: left;
-}
-
-
-
-/*time line */
 
 .TimeLinePlayback{
   position: relative; 
   width: 100%;
-  height: 30%;
-  float: left;
-  display:inline-block; 
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
 }
 
-.TimeButton{
-  width: 6%;
+.properties{
+  position: relative;
+  width: 250px; 
   height: 100%;
+  text-align: center;
+  color: var(--text);
+  float: left;
+}
+
+
+/*time line */
+.TimeButton{
   display:inline-block; 
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.TimeButton:hover{
+  fill: white;
 }
 
 
 .timeLineContainer{
+  border-top: 1px solid grey;
   position: relative; 
   width: 100%;
-  height: 70%;
+  height: 200px;
   float: left;
 }
-
-
-
-
 
 .timeLineControls{
   position: relative; 
