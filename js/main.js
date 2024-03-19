@@ -1,4 +1,5 @@
 var activePanel = ""; // media, text, effects, transition
+var activeProperty = "" // Text, effect
 
 function deselectComponentPanels(){
     const components = document.querySelectorAll(".component");
@@ -16,6 +17,53 @@ function hideAllComponentPanels(){
         panel.style.display = "none";
     }
 }
+
+
+
+
+
+function hideAllPropertyPanels(){
+    const panels = document.querySelectorAll(".propertyPanels");
+    console.log(panels.length)
+    for(var panel of panels){
+        panel.style.display = "none";
+    }
+}
+
+
+function settingsMenu(){
+    document.getElementById("settingsMenu").style.display = "block";
+}
+
+function removeSettingsMenu(){
+    document.getElementById("settingsMenu").style.display = "none";
+}
+
+
+
+
+function togglePropertyPanel(panel){
+
+    hideAllPropertyPanels();
+    switch(panel){
+
+        case "text":
+            document.getElementById("textProperties").style.display = "block"; // show panel
+            break;
+
+        case "video":
+            document.getElementById("videoProperties").style.display = "block"; // show panel
+            break;
+
+        case "audio":
+            document.getElementById("audioProperties").style.display = "block"; // show panel
+            break;
+    }
+
+}
+
+
+
 
 function toggleComponentPanel(panel){
     if(activePanel === panel){

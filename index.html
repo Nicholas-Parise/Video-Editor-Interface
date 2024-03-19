@@ -55,9 +55,14 @@
                 </div>
             </div>
 
+            <div class="dropdown settingsButton">
+                <button class="dropbtn" onclick="settingsMenu()">
+                    <span style="font-size: 16px;" class="glyphicon glyphicon-wrench"></span>
+                </button>
+            </div>
+            
+
         </div>
-
-
 
         <div class="center">
             <div class="componentMenu" id="componentMenu">
@@ -130,6 +135,7 @@
                 </div>
                 
                 <div class="expandingMenu" id="expandingComponentPanel" style="display: none;">
+                    
                     <div class="componentPanel" id="mediaPanel">
                         <div class="accent svgIcon" style="color: black; border-radius: 25px; padding: 5px; font-size: 30px; margin: 10px;" onclick='             // MOVE THIS TO A JS FILE????
                         // creating input on-the-fly
@@ -154,21 +160,27 @@
                         <div class="placeholderContainer">
                             <div>
                                 <div class="placeholderItem">
-                                    <div class="placeholderTile"></div>
+                                    <div style="display:table;" class="placeholderTile">
+                                    <div style=" display:table-cell;vertical-align:middle;" class="glyphicon glyphicon-camera"></div>
+                                </div>
                                 </div>
                                 <div>picture.png</div>
                             </div>
     
                             <div>
                                 <div class="placeholderItem">
-                                    <div class="placeholderTile"></div>
+                                    <div  style="display:table;" class="placeholderTile">
+                                    <div style=" display:table-cell;vertical-align:middle;" class="glyphicon glyphicon-film"></div>
+                                </div>
                                 </div>
                                 <div>video.mp4</div>
                             </div>
 
                             <div>
                                 <div class="placeholderItem">
-                                    <div class="placeholderTile"></div>
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;" class="glyphicon glyphicon-music"></div>
+                                    </div>
                                 </div>
                                 <div>music.mp3</div>
                             </div>
@@ -176,7 +188,9 @@
     
                             <div>
                                 <div class="placeholderItem">
-                                    <div class="placeholderTile"></div>
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;" class="glyphicon glyphicon-film"></div>
+                                    </div>
                                 </div>
                                 <div>movie.mov</div>
                             </div>
@@ -187,6 +201,68 @@
 
                     <div class="componentPanel" id="textPanel" style="display: none;">
                         <h1>Text</h1>
+
+                        <div  class="placeholderContainer">
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div style="font-family: 'Times New Roman', Times, serif;" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>times new roman</div>
+                            </div>
+    
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>Arial</div>
+                            </div>
+
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div style="font-family:monospace" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>monospace</div>
+                            </div>
+
+    
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div  style="font-family:'Brush Script MT'" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>Cursive</div>
+                            </div>
+
+
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div style="font-family:papyrus" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>papyrus</div>
+                            </div>
+    
+                            <div>
+                                <div class="placeholderItem textComponentContainer">
+                                    <div style="font-family:'Comic Sans MS', cursive" class="placeholderTile">
+                                        Tt
+                                    </div>
+                                </div>
+                                <div>comic sans</div>
+                            </div>
+    
+
+                        </div>
+                     
+
                     </div>
 
                     <div class="componentPanel" id="effectsPanel" style="display: none;">
@@ -243,12 +319,14 @@
             </div>
 
 
-            <div class="properties">
+            <div class="properties" >
                 <div width="100%">
                     <h1>Properties</h1>
                 </div>
 
-                <div>
+                <div class="propertyPanels" id = "videoProperties">
+
+                    <div>
                     <div class="sliderItem">
                         <div>
                             <div>
@@ -282,8 +360,101 @@
                         </div>
                     </div>
                     
+                    </div>
+
                 </div>
 
+
+                <div class="propertyPanels" id = "audioProperties" style="display: none;">
+
+                    <div>
+                    <div class="sliderItem">
+                        <div>
+                            <div>text</div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sliderItem">
+                        <div>
+                            <div>
+                                Volume
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sliderItem">
+                        <div>
+                            <div>
+                                text
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+
+                </div>
+
+
+                <div  class="propertyPanels" id = "textProperties" style="display: none;">
+
+
+                    <div class="inputContainer">
+                        <span class="glyphicon glyphicon-text-size"></span>
+                        <input id=textsize type=number value=11 min=1 max=100>
+                     </div>
+
+
+                     <div class="inputContainer">
+                         <span class="glyphicon glyphicon-font"></span>
+                         <select name="fonts" id="fonts">
+                             <option value="Arial">Arial</option>
+                             <option value="Times">Times</option>
+                             <option value="Comic Sans">ComicSans</option>
+                             <option value="Helvetica">Helvetica</option>
+                           </select>
+                     </div>
+
+                     <div class="inputContainer">
+                         <span class="glyphicon glyphicon-text-color"></span>
+                         <input id=textColor type=color>
+                      </div>
+
+                      <div class="inputContainer">
+                         <span class="glyphicon glyphicon-text-background"></span>
+                         <input id=textColorBackground type=color>
+                      </div>
+
+                     <div>
+                         <span class="glyphicon glyphicon-bold"></span>
+                         <span class="glyphicon glyphicon-italic"></span>
+                     </div>
+
+
+                     <div>
+                         <span class="glyphicon glyphicon-indent-left"></span>
+                         <span class="glyphicon glyphicon-indent-right"></span>
+                     </div>
+                     
+
+
+
+                     <div>
+                         <span class="glyphicon glyphicon-align-left"></span>
+                         <span class="glyphicon glyphicon-align-center"></span>
+                         <span class="glyphicon glyphicon-align-right"></span>
+                         <span class="glyphicon glyphicon-align-justify"></span>
+                     </div>
+
+                </div>
                 
 
                 
@@ -294,36 +465,119 @@
 
         <div class = "timeContainer">
             <div class="timeLineContainer">
+
+
                 <div class="timeLineControls">
-                    <div class="name">a</div>
+                    <div class="name">a
+                        <span class="glyphicon glyphicon-scissors"></span>
+                        
+                    </div>
                     <div class="name">b</div>
                     <div class="name">c</div>
                 </div>
 
 
             <div class="timeLineTitles">
-                <span class="v4_23">Track 1</span>
-                <span class="v4_24">Track 2</span>
-                <span class="v4_25">Audio</span>
+
+                <div class="timeLineContainers">
+
+                    <div class="timeLineRow">Track 3</div>
+                    <div class="timeLineRow">Track 2</div>
+                    <div class="timeLineRow">Track 1</div>
+
+                    <div class="timeLineRow">&nbsp;</div>
+
+                    <div class="timeLineRow">Audio1</div>
+                    <div class="timeLineRow">Audio2</div>
+                    <div class="timeLineRow">Audio3</div>
+                </div>
             </div>
             
     
             <div class="timeLine">
-                <div class="name">a</div>
-                <div class="name">b</div>
-                <div class="name">c</div>
-                <div class="name">d</div>
-                <div class="v6_44">e</div>
+
+                <div class="timeLineContainers">
+
+                    <div class="timeLineRow">
+
+
+                        <div class="timeLineRow">
+                            <div class = "text" style="width: 50%; margin-left: 5%;" onclick="togglePropertyPanel('text');">
+                                <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
+                             </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="timeLineRow">
+                        <div class="timeLineRow">
+                            <div class = "video" style="width: 25%; margin-left: 22%;" onclick="togglePropertyPanel('video');">
+                                <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="timeLineRow">
+                       <div class = "video" style="width: 25%;" onclick="togglePropertyPanel('video');">
+                        <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
+                        </div>
+                   </div>
+
+                    <div class="timeLineRow">&nbsp;</div> <!-- center of timeline -->
+
+                    <div class="timeLineRow">
+                        <div class="timeLineRow">
+                            <div class = "audio" style="width: 40%;" onclick="togglePropertyPanel('audio');">
+                                <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="timeLineRow">
+
+                        <div class="timeLineRow">
+                            <div class = "audio" style="width: 40%; margin-left: 22%;" onclick="togglePropertyPanel('audio');">
+                                <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
+                             </div>
+                        </div>
+
+                    </div>
+                    <div class="timeLineRow">
+
+                        <div class = "timelinePlaceholder" style="width: 40%; margin-left: 22%;">
+                            <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
             </div>
     
-      
         </div>
         </div>
+    </div>
 
+    <div>
+        <div class="settingsMenu" id="settingsMenu">
+            <div>
+                <h1 class="settingsTitle">Settings</h1>
+                <button class="dropbtn settingsTitle" onclick="removeSettingsMenu()">
+                    <span style="font-size: 16px; color: red;" class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
 
+            <div>
+                <h4>text</h4>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+            </div>
 
-
-
+                        
+        </div>
     </div>
 
 </body>
