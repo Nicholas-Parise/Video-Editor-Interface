@@ -259,7 +259,6 @@
                                 <div>comic sans</div>
                             </div>
     
-
                         </div>
                      
 
@@ -271,6 +270,84 @@
 
                     <div class="componentPanel" id="transitionsPanel" style="display: none;">
                         <h1>Transitions</h1>
+
+                        <div class="placeholderContainer">
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/transition_fade.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>fade</div>
+                            </div>
+    
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/transition_dissolve.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>dissolve</div>
+                            </div>
+
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/transition_slide.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>slide</div>
+                            </div>
+                            
+    
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/transition_push.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>push</div>
+                            </div>
+
+
+
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/masked_transitions.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>masked</div>
+                            </div>
+
+
+
+                            <div>
+                                <div class="placeholderItem">
+                                    <div style="display:table;" class="placeholderTile">
+                                        <div style=" display:table-cell;vertical-align:middle;">
+                                            <img class="transitionIcons"  src="images/transition_chop.svg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>chop</div>
+                            </div>
+
+
+
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -370,7 +447,7 @@
                     <div>
                     <div class="sliderItem">
                         <div>
-                            <div>text</div>
+                            <div>Speed</div>
                             <div class="slidecontainer">
                                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
                             </div>
@@ -391,13 +468,34 @@
                     <div class="sliderItem">
                         <div>
                             <div>
-                                text
+                                Fade in
                             </div>
                             <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="sliderItem">
+                        <div>
+                            <div>
+                                Fade out
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        Audio Equaliser
+                        <div style="display:inline-block;" >
+                                <img class="transitionIcons"  src="images/audio_equalizer.svg">
+                        </div>
+                    </div>
+
                     
                     </div>
 
@@ -405,7 +503,6 @@
 
 
                 <div  class="propertyPanels" id = "textProperties" style="display: none;">
-
 
                     <div class="inputContainer">
                         <span class="glyphicon glyphicon-text-size"></span>
@@ -455,6 +552,47 @@
                      </div>
 
                 </div>
+
+
+
+
+                <div  class="propertyPanels" id = "transitionProperties" style="display: none;">
+
+                    <div class="sliderItem">
+                        <div>
+                            <div>
+                                Speed
+                            </div>
+                            <div class="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="inputContainer">
+                        <h4 style="display: inline-block;">Duration</h4>
+                        <input style="display: inline-block;" id="transitionDuration" type=number value=5 min=1 max=100>
+                        seconds
+                    </div>
+
+
+                     <div class="inputContainer">
+                         <h4 style="display: inline-block;">Type</h4>
+                         <select name="fonts" id="transitions">
+                             <option value="Fade">Fade</option>
+                             <option value="Dissolve">Dissolve</option>
+                             <option value="Slide">Slide</option>
+                             <option value="Push">Push</option>
+                             <option value="Masked">Masked</option>
+                             <option value="Chop">Chop</option>
+                           </select>
+                     </div>
+
+
+                </div>
+
+
                 
 
                 
@@ -479,11 +617,11 @@
 
             <div class="timeLineTitles">
 
-                <div class="timeLineContainers">
+                <div style="min-width: 100%;" class="timeLineContainers">
 
-                    <div class="timeLineRow">Track 3</div>
-                    <div class="timeLineRow">Track 2</div>
-                    <div class="timeLineRow">Track 1</div>
+                    <div class="timeLineRow"><div>Track 3</div></div>
+                    <div class="timeLineRow"><div>Track 2</div></div>
+                    <div class="timeLineRow"><div>Track 1</div></div>
 
                     <div class="timeLineRow">&nbsp;</div>
 
@@ -499,51 +637,67 @@
                 <div class="timeLineContainers">
 
                     <div class="timeLineRow">
-
-
-                        <div class="timeLineRow">
                             <div class = "text" style="width: 50%; margin-left: 5%;" onclick="togglePropertyPanel('text');">
-                                <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
+                                    <svg class="timelineIcons" style="width: 0.8em;" viewBox="0 -960 960 960">
+                                        <path d="M420-160v-520H200v-120h560v120H540v520H420Z"/>
+                                    </svg>
                              </div>
-                        </div>
-
                     </div>
                     
                     <div class="timeLineRow">
-                        <div class="timeLineRow">
+                     
                             <div class = "video" style="width: 25%; margin-left: 22%;" onclick="togglePropertyPanel('video');">
                                 <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
                              </div>
-                        </div>
+                    
                     </div>
 
                     <div class="timeLineRow">
-                       <div class = "video" style="width: 25%;" onclick="togglePropertyPanel('video');">
+                       <div class = "video" style="width: 25%; float:left;" onclick="togglePropertyPanel('video');">
                         <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
                         </div>
+
+
+                        <div class = "transition" style="width: 5%; float:left;" onclick="togglePropertyPanel('transition');">
+                
+                            <svg class="timelineIcons" style="width: 1em;" viewBox="-3.71 0 122.88 122.88" xml:space="preserve">
+                                <g>
+                                    <path class="st0" d="M108.07,15.56L5.7,52.84L0,37.22L102.37,0L108.07,15.56L108.07,15.56z M115.46,122.88H5.87V53.67h109.59 V122.88L115.46,122.88z M101.79,15.65V2.36l-7.23,2.61v13.34L101.79,15.65L101.79,15.65L101.79,15.65z M87.39,20.93V7.59 l-7.26,2.58v13.45L87.39,20.93L87.39,20.93z M72.49,26.07v-13.2l-7.26,2.61v13.26L72.49,26.07L72.49,26.07L72.49,26.07z M113.43,68.32l-4.56-12.54h-7.73l4.56,12.54H113.43L113.43,68.32z M97.64,68.32l-4.56-12.54h-7.76l4.59,12.54H97.64L97.64,68.32z M57.98,31.69V18.32l-7.25,2.61v13.34L57.98,31.69L57.98,31.69z M82.41,68.32l-4.56-12.54h-7.73l4.56,12.54H82.41L82.41,68.32z M43.08,36.8V23.54l-7.34,2.61v13.34L43.08,36.8L43.08,36.8z M66.62,68.32l-4.56-12.54h-7.75l4.56,12.54H66.62L66.62,68.32z M28.82,42.28V28.9l-7.31,2.7v13.26L28.82,42.28L28.82,42.28L28.82,42.28z M51.06,68.32L46.5,55.78h-7.73l4.56,12.54H51.06 L51.06,68.32z M13.84,47.39V34.13l-7.26,2.58v13.37L13.84,47.39L13.84,47.39z M35.36,68.32l-4.64-12.54l-7.67,0l4.48,12.54H35.36 L35.36,68.32z M19.96,68.32l-4.64-12.54l-7.73,0l4.56,12.54H19.96L19.96,68.32z"/>
+                                </g>
+                            </svg>
+
+
+                         </div>
+
+
+                        <div class = "video" style="width: 25%; float:left;" onclick="togglePropertyPanel('video');">
+                            <div class="timelineIcons glyphicon glyphicon-film">&nbsp;</div>
+                         </div>
+
+
                    </div>
 
                     <div class="timeLineRow">&nbsp;</div> <!-- center of timeline -->
 
                     <div class="timeLineRow">
-                        <div class="timeLineRow">
+                     
                             <div class = "audio" style="width: 40%;" onclick="togglePropertyPanel('audio');">
                                 <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
                              </div>
-                        </div>
+                       
                     </div>
 
                     <div class="timeLineRow">
+                        
 
-                        <div class="timeLineRow">
                             <div class = "audio" style="width: 40%; margin-left: 22%;" onclick="togglePropertyPanel('audio');">
                                 <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
                              </div>
-                        </div>
+                
 
                     </div>
-                    <div class="timeLineRow">
 
+                    <div class="timeLineRow">
                         <div class = "timelinePlaceholder" style="width: 40%; margin-left: 22%;">
                             <div class="timelineIcons glyphicon glyphicon-music">&nbsp;</div>
                         </div>
@@ -569,12 +723,29 @@
             </div>
 
             <div>
-                <h4>text</h4>
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label>
+                <div style="display: inline-block;">
+                    <h4>text</h4>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
+
+            <div>
+                <div style="display: inline-block;">
+                <h4>hardware acceleration</h4>
+
+                </div>
+            </div>
+
+            <div>
+                <div style="display: inline-block;">
+                <h4>dark mode</h4>
+
+                </div>
+            </div>
+
 
                         
         </div>

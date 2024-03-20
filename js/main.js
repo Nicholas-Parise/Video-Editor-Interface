@@ -20,8 +20,6 @@ function hideAllComponentPanels(){
 
 
 
-
-
 function hideAllPropertyPanels(){
     const panels = document.querySelectorAll(".propertyPanels");
     console.log(panels.length)
@@ -57,6 +55,9 @@ function togglePropertyPanel(panel){
 
         case "audio":
             document.getElementById("audioProperties").style.display = "block"; // show panel
+            break;
+        case "transition":
+            document.getElementById("transitionProperties").style.display = "block"; // show panel
             break;
     }
 
