@@ -7,7 +7,7 @@ html, body {
 }
 
 div {
-  /*outline: 2px dashed blue;*/
+  /* outline: 2px dashed blue; */
 }
 
 a {
@@ -60,6 +60,19 @@ a:active {
   --textHover:rgb(255, 255, 255);
   --accent:rgb(255, 102, 0);
   --accentHover:rgb(255, 132, 50);
+
+  --tlText:aquamarine;
+  --tlTextHover:rgba(157, 255, 242);
+  --tlVideo:lightgreen;
+  --tlVideoHover:rgba(161, 255, 161);
+  --tlAudio:peachpuff;
+  --tlAudioHover:rgba(255, 238, 205);
+  --tlTransition:plum;
+  --tlTransitionHover:rgba(241, 180, 241);
+  --tlEffect:palevioletred;
+  --tlEffectHover:rgba(236, 132, 177);
+  
+
 }
 
 .placeholderTile{
@@ -318,7 +331,7 @@ a:active {
 }
 
 
-/*time line */
+/*timeline */
 .TimeButton{
   display:inline-block; 
   margin-left: 20px;
@@ -329,18 +342,9 @@ a:active {
   fill: white;
 }
 
-
-.timeLineContainer{
-  border-top: 1px solid grey;
-  position: relative; 
-  width: 100%;
-  height: 200px;
-  float: left;
-}
-
 .timeLineControls{
   position: relative; 
-  width: 10%;
+  width: auto;
   height: 100%;
   float: left;
 }
@@ -349,6 +353,7 @@ a:active {
   position: relative; 
   width: auto;
   height: 100%;
+  
   float: left;
   border-right: 1px solid grey;
   border-left: 1px solid grey;
@@ -358,14 +363,30 @@ a:active {
 
 .timeLine{
   position: relative; 
-  width: 80%;
+  width: auto;
+
+  min-width: 85%;
+  max-width: 100%;
+
   height: 100%;
   float: left;
+  overflow:hidden;
 }
 
+/**/
+
+.timeLineContainer{
+  border-top: 1px solid grey;
+  position: relative; 
+  width: 100%;
+  height: 200px;
+  float: left;
+  color: var(--text);
+}
 
 .timeLineContainers{
   width: 100%;
+  height: 100%;
   height: calc(100%-10px);
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -385,26 +406,56 @@ a:active {
 }
 
 
-.video{
-  background-color: lightgreen;
-  /*outline: 2px solid white;    TODO: selected */
+.timelineElement{
+
 }
+
+
+.video{
+  background-color: var(--tlVideo);
+}
+
+.video:hover{
+  background-color: var(--tlVideoHover);
+}
+
 
 .audio{
-  background-color: peachpuff;
+  background-color: var(--tlAudio);
 }
+
+.audio:hover{
+  background-color: var(--tlAudioHover);
+}
+
 
 .text{
-  background-color: aquamarine;  
+  background-color: var(--tlText);  
 }
 
-.effect{
-  background-color: palevioletred;
+.text:hover{
+  background-color: var(--tlTextHover);  
 }
 
 .transition{
-  background-color: plum;
+  background-color: var(--tlTransition);
 }
+
+.transition:hover{
+  background-color: var(--tlTransitionHover);
+}
+
+
+
+
+.effect{
+  background-color: var(--tlEffect);
+}
+
+.effect:hover{
+  background-color: var(--tlEffectHover);
+}
+
 
 
 
@@ -426,11 +477,11 @@ select{
 
 .inputContainer{
   text-align: center;
+  margin-bottom: 5px;
 }
 
 
 .settingsButton{
-
   float:right;
 }
 
@@ -439,13 +490,22 @@ select{
   display: none;
   z-index: 2;
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  padding: 5px;
+
   background-color: var(--background);
-  padding: 1%;
+  color: var(--text);
 }
+
+.settingsMenuClose{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
 
 
 .settingsTitle{
@@ -467,30 +527,111 @@ select{
 
 
 
-.stopButton {
-  width: 50px;
-  height: 50px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: relative;
-}
-
-
-.playButton{
-  width: 0;
-  height: 0;
-  border-top: 25px solid transparent;
-  border-left: 50px solid red;
-  border-bottom: 25px solid transparent;
-}
-
-
-.transitionIcons{
+.svgIcons{
   opacity: 80%; 
   width: 90%;
   filter: invert(1); /* makes it white*/
 }
 
+
+.svgIcons:hover{
+  opacity: 80%; 
+  width: 90%;
+  filter: invert(0.75); /* makes it white*/
+}
+
+
+.playHead{
+  position:absolute;
+  z-index: 3;
+  margin-left: 0%;
+
+  animation-name: timelineAnimation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+
+@keyframes timelineAnimation {
+  from {margin-left: 0%;}
+  to {margin-left: 100%;}
+}
+
+.noHover{
+  pointer-events: none;
+}
+
+
+
+
+
+/* toggle switch */
+
+/* The switch - the box around the slider from W3Schools*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+input:checked + .toggle {
+  background-color: #2196F3;
+}
+
+input:focus + .toggle {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .toggle:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+/* Rounded sliders */
+.toggle.round {
+  border-radius: 34px;
+}
+
+.toggle.round:before {
+  border-radius: 50%;
+}
 
 
 

@@ -29,6 +29,16 @@ function hideAllPropertyPanels(){
 }
 
 
+function deselectAllTimeLine(){
+    const panels = document.querySelectorAll(".timelineElement");
+    console.log(panels.length)
+    for(var panel of panels){
+        panel.style.outline = "none";
+    }
+}
+
+
+
 function settingsMenu(){
     document.getElementById("settingsMenu").style.display = "block";
 }
@@ -40,11 +50,36 @@ function removeSettingsMenu(){
 
 
 
+function timelineSelect(id){
+    deselectAllTimeLine();
+    document.getElementById(id).style.outline = "2px solid white";
+}
+
+
+
+function pauseHead(){    
+    document.getElementsByClassName("playHead")[0].style.animationPlayState  = "paused";
+}
+
+function playHead(){    
+    document.getElementsByClassName("playHead")[0].style.animationPlayState  = "running";
+}
+
+function stopHead(){    
+    document.getElementsByClassName("playHead")[0].style.animation  = "none";
+    document.getElementsByClassName("playHead")[0].offsetHeight;
+    document.getElementsByClassName("playHead")[0].style.animation  = null;
+    
+}
+
+
+
+
 function togglePropertyPanel(panel){
 
     hideAllPropertyPanels();
-    switch(panel){
 
+    switch(panel){
         case "text":
             document.getElementById("textProperties").style.display = "block"; // show panel
             break;
@@ -56,12 +91,15 @@ function togglePropertyPanel(panel){
         case "audio":
             document.getElementById("audioProperties").style.display = "block"; // show panel
             break;
+
         case "transition":
             document.getElementById("transitionProperties").style.display = "block"; // show panel
             break;
     }
-
 }
+
+
+
 
 
 
