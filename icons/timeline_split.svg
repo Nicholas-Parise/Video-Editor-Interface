@@ -1,0 +1,13 @@
+<svg id="S_Slip_Lg_N_D_2x" data-name="S_Slip_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #8C8C8C !important;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Slip_Lg_N_D@2x</title>
+  <path id="Fill" class="fill" d="M16,18H28v4.9a0.5,0.5,0,0,0,.829.376L36,17l-7.171-6.274A0.5,0.5,0,0,0,28,11.1V16H16V11.1a0.5,0.5,0,0,0-.829-0.376L8,17l7.171,6.274A0.5,0.5,0,0,0,16,22.9V18ZM38,5V31a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H39A1,1,0,0,0,38,5ZM2,5V31a1,1,0,0,0,1,1H5a1,1,0,0,0,1-1V5A1,1,0,0,0,5,4H3A1,1,0,0,0,2,5Z"/>
+  </svg>

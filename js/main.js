@@ -56,20 +56,24 @@ function timelineSelect(id){
 }
 
 
-
-function pauseHead(){    
-    document.getElementsByClassName("playHead")[0].style.animationPlayState  = "paused";
-}
-
-function playHead(){    
-    document.getElementsByClassName("playHead")[0].style.animationPlayState  = "running";
+function toggleHead(){
+    let playHeadState = document.getElementsByClassName("playHead")[0]
+    if (playHeadState.style.animationPlayState==="running"){
+        playHeadState.style.animationPlayState = "paused";
+        document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
+    }
+    else{
+        playHeadState.style.animationPlayState = "running";
+        document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-pause";
+    }
 }
 
 function stopHead(){    
     document.getElementsByClassName("playHead")[0].style.animation  = "none";
     document.getElementsByClassName("playHead")[0].offsetHeight;
     document.getElementsByClassName("playHead")[0].style.animation  = null;
-    
+    document.getElementsByClassName("playHead")[0].style.animationPlayState = "paused";
+    document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
 }
 
 
@@ -136,4 +140,81 @@ function toggleComponentPanel(panel){
             activePanel = "transition";
         }
     }
+}
+
+function helpToggle(){
+    helpbtn = document.getElementById("helpbtn");
+    if (helpbtn.className === "helpbtn"){
+        helpbtn.className = "helpbtn active";
+        tooltips = [...document.getElementsByClassName("tooltip")]; //spread operator (...)! It turns this classlist into an array :p
+        tooltips.forEach(element => {
+            element.style.visibility = "visible";
+            element.style.opacity = "1";
+        });
+    }
+    else{
+        helpbtn.className = "helpbtn";
+        tooltips = [...document.getElementsByClassName("tooltip")]; //spread operator (...)! It turns this classlist into an array :p
+        tooltips.forEach(element => {
+            element.style.visibility = "hidden";
+            element.style.opacity = "0";
+        });
+    }
+}
+function load(){
+    // Add shortcuts to this listener
+    document.addEventListener('keydown', function(event) {
+    
+        if (event.ctrlKey && event.key === 's') {
+            event.preventDefault();
+            alert("Saved");
+        }
+
+    });
+    
+    setProjectTitleFromURLParams();
+}
+
+function setProjectTitleFromURLParams(){
+    const urlParams = new URLSearchParams(window.location.search);
+    var title = urlParams.get("title");
+    if(title === null){
+        title = "My Project";
+    }
+    document.getElementById("titleContainer").value = title;
+}
+
+function setAspectRatioFromURLParams(){
+    const urlParams = new URLSearchParams(window.location.search);
+    var ratioX = urlParams.get("ratioX");
+    var ratioY = urlParams.get("ratioY");
+    if(ratioX === null || ratioY === null){
+        resizeCanvasByRatio(16,9);
+    }
+    else{
+        resizeCanvasByRatio(ratioX,ratioY);
+    }
+}
+
+function resizeCanvasByRatio(widthRatio, heightRatio){
+    var canvas = document.getElementById("previewCanvas");
+    var ctx = canvas.getContext("2d");
+    //var width = canvas.getBoundingClientRect().width;
+    //var height = canvas.getBoundingClientRect().height;
+    const scalarLimitWidth = 800;
+    const scalarLimitHeight = 600;
+    const ratio = Math.max(widthRatio, heightRatio);
+    var scalar;
+    if(Number(widthRatio) > Number(heightRatio)){
+        scalar = scalarLimitWidth/ratio;
+    }
+    else{
+        scalar = scalarLimitHeight/ratio;
+    }
+    var width = scalar*widthRatio;
+    var height = scalar*heightRatio;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, width, height);
 }
