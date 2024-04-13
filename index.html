@@ -62,17 +62,28 @@
                 </div>
             </div>
 
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img class="svgIcons" src="icons/undo.svg">
+                </button>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <img class="svgIcons" src="icons/redo.svg">
+                </button>
+            </div>
+
+
             <!-- DIV for Project Title -->
             <div style="display: flex; justify-content: center; place-items: center; height: 44px;">
                 <div>
-                    <span class ="tooltip" style="width: 118px; top: 45px; margin-left: 140px">Rename your Project</span>
-                    <input id="titleContainer" style="background-color: var(--accentTop); width: 30%; min-width: 400px; color: var(--text); text-align: center; font-size: 25px;"></input>
+                    <span class ="tooltip" style="width: 118px; top: 45px; margin-left: 45px ">Rename your Project</span>
+                    <input id="titleContainer" style="background-color: var(--accentTop); width: 30%; min-width: 400px; color: var(--text); text-align: center; font-size: 25px; position: relative; left: -96px;"></input>
                 </div>
-                
-                
             </div>
 
-            
             
             <!--<div class="visible saveMessage">File Saved!</div>-->
             <div class="dropdown helpButton">
@@ -494,7 +505,7 @@
                                 <div class="placeholderItem">
                                     <div style="display:table;" class="placeholderTile">
                                         <div style=" display:table-cell;vertical-align:middle;">
-                                            <img class="noHover svgIcons" src="icons/masked_transitions.svg">
+                                            <img class="noHover svgIcons" src="icons/transition_masked.svg">
                                         </div>
                                     </div>
                                 </div>
@@ -798,7 +809,7 @@
 
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
-                                <span class="tooltip tooltipRight">Select</span>
+                                <span class="tooltip tooltipRight">Select:&nbsp;Select&nbsp;a&nbsp;clip</span>
                                 <img class="svgIcons" src="icons/timeline_select.svg">
                             </div>
                             
@@ -808,7 +819,7 @@
 
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
-                                <span class="tooltip tooltipRight">Ripple</span>
+                                <span class="tooltip tooltipRight">Ripple:&nbsp;Cut&nbsp;a&nbsp;clip&nbsp;and&nbsp;shift&nbsp;other&nbsp;clips&nbsp;respectively</span>
                                 <img class="svgIcons" src="icons/timeline_ripple.svg">
                             </div>
                         </div>
@@ -817,21 +828,21 @@
 
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
-                                <span class="tooltip tooltipRight">Razor</span>
+                                <span class="tooltip tooltipRight">Cut:&nbsp;cut&nbsp;a&nbsp;clip</span>
                                 <img class="svgIcons timelineTool" src="icons/timeline_razor.svg">
                             </div>
                         </div>
 
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
-                                <span class="tooltip tooltipRight">Split</span>
-                                <img class="svgIcons timelineTool" src="icons/timeline_split.svg">
+                                <span class="tooltip tooltipRight">Slip:&nbsp;change&nbsp;a&nbsp;clips&nbsp;start&nbsp;without&nbsp;moving&nbsp;other&nbsp;clips</span>
+                                <img class="svgIcons timelineTool" src="icons/timeline_slip.svg">
                             </div>
                         </div>
 
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
-                                <span class="tooltip tooltipRight">Pan</span>
+                                <span class="tooltip tooltipRight">Pan:&nbsp;Pan&nbsp;through&nbsp;timeline</span>
                                 <img class="svgIcons timelineTool" src="icons/timeline_hand.svg">
                             </div>
                         </div>

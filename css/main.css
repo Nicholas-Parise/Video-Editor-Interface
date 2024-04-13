@@ -128,7 +128,7 @@ a:active {
   top: 0px;
   left: 0px;
   display:grid; 
-  grid-template-columns: auto auto auto 1fr auto auto; 
+  grid-template-columns: auto auto auto auto auto 1fr auto auto; 
   background-color: var(--accentTop);
 }
 
