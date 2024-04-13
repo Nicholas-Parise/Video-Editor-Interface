@@ -366,6 +366,18 @@ a:active {
   height: calc(100% - 35px);
 }
 
+
+.previewTime{
+  color: var(--text);
+  font-size:medium;
+  z-index: 2;
+  position:absolute; 
+  bottom: 20px; 
+  right: 40px;
+}
+
+
+
 .TimeLinePlayback{
   position: relative; 
   width: 100%;
@@ -389,6 +401,7 @@ a:active {
 
 /*timeline */
 .TimeButton{
+  cursor: pointer;
   display:inline-block; 
   margin-left: 20px;
   margin-right: 20px;
@@ -405,6 +418,11 @@ a:active {
   float: left;
   background-color: var(--accentTools);
 }
+
+.timelineTool{
+  cursor: pointer;
+}
+
 
 .timeLineTitles{
   position: relative; 
@@ -461,7 +479,7 @@ a:active {
 
 
 .timelineElement{
-
+  cursor: pointer;
 }
 
 

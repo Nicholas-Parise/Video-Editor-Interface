@@ -1,5 +1,9 @@
 var activePanel = ""; // media, text, effects, transition
 var activeProperty = "" // Text, effect
+var time = 0;
+var head = false;
+
+setInterval(updateTime, 700);
 
 function deselectComponentPanels(){
     const components = document.querySelectorAll(".component");
@@ -61,10 +65,12 @@ function toggleHead(){
     if (playHeadState.style.animationPlayState==="running"){
         playHeadState.style.animationPlayState = "paused";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
+        head = false;
     }
     else{
         playHeadState.style.animationPlayState = "running";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-pause";
+        head = true;
     }
 }
 
@@ -74,6 +80,10 @@ function stopHead(){
     document.getElementsByClassName("playHead")[0].style.animation  = null;
     document.getElementsByClassName("playHead")[0].style.animationPlayState = "paused";
     document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
+
+    head = false;
+    time = 0;
+    setTime();
 }
 
 
@@ -218,3 +228,41 @@ function resizeCanvasByRatio(widthRatio, heightRatio){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
 }
+
+
+
+/**
+ * simple helper method to easily set the time of the view time 
+ */
+function setTime(){
+    
+    var minute = Math.floor(time / 60);
+    var second = time % 60;
+
+    var text = "";
+
+    if(minute<10){
+        text += "0"
+    }
+
+    text = text + minute + ":";
+
+    if(second<10){
+        text += "0"
+    }
+
+    text = text + second + " / 01:37";
+
+    document.getElementById("viewTime").textContent = text;
+}
+
+
+
+function updateTime(){
+
+if(head)
+    time++;
+
+    setTime(time);
+}
+

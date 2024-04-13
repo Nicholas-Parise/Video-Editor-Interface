@@ -82,6 +82,12 @@ html, body {
     background-color: #383847;
 }
 
+.button:hover .buttonText{
+    color: var(--textHover);
+    text-decoration: none;
+}
+
+
 .button:hover .plusIcon{
     filter: brightness(0) invert(1); /* makes it white*/
 }
@@ -148,22 +154,22 @@ html, body {
 }
 
 .plusIcon {
-    width: 50%;
-    height: 50%;
+    width: 45%;
+    height: 45%;
     fill: var(--icon); /* Icon color */
     z-index: 1; /* Ensure the icon is on top of the square */
 }
 
 .phoneIcon {
-    width: 50%;
-    height: 50%;
+    width: 38%;
+    height: 38%;
     fill: var(--icon); /* Icon color */
     z-index: 1; /* Ensure the icon is on top of the square */
 }
 
 .instagramIcon {
-    width: 50%;
-    height: 50%;
+    width: 43%;
+    height: 43%;
     fill: var(--icon); /* Icon color */
     z-index: 1; /* Ensure the icon is on top of the square */
 }

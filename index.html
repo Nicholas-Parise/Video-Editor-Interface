@@ -18,7 +18,7 @@
             <div class="dropdown">
                 <button class="dropbtn">File</button>
                 <div class="dropdown-content">
-                    <a href="homePage.html" target="_blank">Home</a>
+                    <a href="homePage.html" target="_self">Home</a>
                     <a href="" target="_blank">New</a>
                     <a onclick='             // MOVE THIS TO A JS FILE????
                         // creating input on-the-fly
@@ -78,9 +78,9 @@
 
             <!-- DIV for Project Title -->
             <div style="display: flex; justify-content: center; place-items: center; height: 44px;">
-                <div>
-                    <span class ="tooltip" style="width: 118px; top: 45px; margin-left: 45px ">Rename your Project</span>
-                    <input id="titleContainer" style="background-color: var(--accentTop); width: 30%; min-width: 400px; color: var(--text); text-align: center; font-size: 25px; position: relative; left: -96px;"></input>
+                <div style="position: relative; left: -170px;">
+                    <span class ="tooltip" style="width: 118px; top: 45px; margin-left: 140px ">Rename your Project</span>
+                    <input id="titleContainer" style="background-color: var(--accentTop); width: 30%; min-width: 400px; color: var(--text); text-align: center; font-size: 25px; "></input>
                 </div>
             </div>
 
@@ -562,6 +562,10 @@
                     </div>
                     
 
+                    <div class="previewTime">
+                        <span id="viewTime">00:00 / 01:37</span>
+                    </div>
+
 
                 </div>
 
@@ -810,22 +814,17 @@
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
                                 <span class="tooltip tooltipRight">Select:&nbsp;Select&nbsp;a&nbsp;clip</span>
-                                <img class="svgIcons" src="icons/timeline_select.svg">
+                                <img class="svgIcons timelineTool" src="icons/timeline_select.svg">
                             </div>
-                            
                         </div>
                         
-
-
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
                                 <span class="tooltip tooltipRight">Ripple:&nbsp;Cut&nbsp;a&nbsp;clip&nbsp;and&nbsp;shift&nbsp;other&nbsp;clips&nbsp;respectively</span>
-                                <img class="svgIcons" src="icons/timeline_ripple.svg">
+                                <img class="svgIcons timelineTool" src="icons/timeline_ripple.svg">
                             </div>
                         </div>
                         
-
-
                         <div class="timeLineRow">
                             <div style=" display:table-cell;vertical-align:middle;">
                                 <span class="tooltip tooltipRight">Cut:&nbsp;cut&nbsp;a&nbsp;clip</span>
