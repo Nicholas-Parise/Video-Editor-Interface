@@ -85,7 +85,7 @@ function toggleHead(){
 }
 
 function stopHead(){
-    playHeadState.style.cssText = "margin-left: -0.5%;";    
+    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";  
     document.getElementsByClassName("playHead")[0].style.animation  = "none";
     document.getElementsByClassName("playHead")[0].offsetHeight;
     document.getElementsByClassName("playHead")[0].style.animation  = null;
