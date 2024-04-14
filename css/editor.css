@@ -1,0 +1,554 @@
+div {
+/*  outline: 2px dashed blue; */
+}
+
+input{
+  border:0;
+}
+
+.svgIcon {
+  fill: var(--icon);
+}
+
+.svgIcon:hover {
+  fill: var(--iconHover);
+}
+
+.glyphicon {
+  font-size: 30px;
+  color: var(--icon);
+}
+
+.glyphicon:hover {
+  color: var(--iconHover);
+}
+
+
+
+
+.placeholderTile{
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+}
+
+
+.placeholderTile:hover{
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+
+.placeholderContainer{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+
+.placeholderItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.accent{
+  background-color: var(--accent);
+}
+
+.accent:hover{
+  background-color: var(--accentHover);
+}
+
+/* */
+.fileBar{
+  position: relative; 
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  display:grid; 
+  grid-template-columns: auto auto auto auto auto 1fr auto auto; 
+  background-color: var(--accentTop);
+}
+
+
+.center{
+  position: relative; 
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+}
+
+.timeContainer{
+  position: relative; 
+  width: 100%;
+  float:left;
+  display:inline-block; 
+}
+
+/* Dropdown menus from W3 Schools */
+/* Dropdown Button */
+.dropbtn {
+  background-color: var(--accentTop);
+  color: var(--text);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+}
+.dropbtnAspect {
+  background-color: var(--background);
+  color: var(--text);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+}
+.settingsButton .dropbtn {
+  background-color: var(--accentTop);
+  color: var(--text);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+  width: 44px;
+  height: 44px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #949494;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  color: var(--textHover);
+}
+
+.helpbtn{
+  background-color: var(--accentTop);
+  color: var(--text);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+  width: 44px;
+  height:44px;
+}
+.helpbtn.active .helpIcon{
+  fill: var(--iconHover);
+}
+.helpIcon{
+  width: 100%;
+  height: 100%;
+  fill: var(--icon);
+  float: right;
+}
+
+.helpIcon:hover{
+  fill: var(--iconHover);
+}
+.helpButton{
+  float: right;
+}
+
+
+
+
+.sliderItem{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+
+.sliderItem:last-child{
+  margin-bottom: 0px;
+}
+
+
+
+
+
+/* center */
+.componentMenu{
+  position: relative; 
+  height: 100%;
+  float: left;
+  min-width: 79px;
+  background: var(--accentSide);
+}
+
+.componentList{
+  position: relative; 
+  height: 100%;
+  display: inline-block;
+  float: left;
+}
+
+.componentList:last-child{
+  margin: 0px;
+}
+
+.component{
+  padding: 5px;
+  margin-bottom: 15px;
+  position: relative; 
+  height: auto;
+  text-align: center;
+  fill: var(--icon);
+  color: var(--icon);
+  border: thick solid transparent;
+}
+
+.component:hover{
+  fill: var(--iconHover);
+  color: var(--iconHover);
+  cursor: pointer;
+}
+
+.componentText{
+  font-size: 12px;
+}
+
+.componentPanel{
+  color: var(--text);
+}
+
+.componentIcon{
+  width: 56px!important;
+}
+
+.importMedia:hover{
+  cursor: pointer;
+}
+
+.expandingMenu{
+  position: relative; 
+  width: 250px;
+  text-align: center;
+  height: 100%;
+  float: left;
+  background-color: var(--accentSideIn);
+}
+
+.player{
+  
+}
+
+
+.preview{
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 35px);
+}
+
+
+.previewTime{
+  color: var(--text);
+  font-size:medium;
+  z-index: 2;
+  position:absolute; 
+  bottom: 20px; 
+  right: 40px;
+}
+
+
+
+.TimeLinePlayback{
+  position: relative; 
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: var(--accentPlayBar);
+}
+
+.properties{
+  background-color: var(--accentProperties);
+  position: relative;
+  width: 250px; 
+  height: 100%;
+  text-align: center;
+  color: var(--text);
+  float: left;
+}
+
+
+/*timeline */
+.TimeButton{
+  cursor: pointer;
+  display:inline-block; 
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.TimeButton:hover{
+  fill: white;
+}
+
+.timeLineControls{
+  position: relative; 
+  width: auto;
+  height: 100%;
+  float: left;
+  background-color: var(--accentTools);
+}
+
+.timelineTool{
+  cursor: pointer;
+}
+
+
+.timeLineTitles{
+  position: relative; 
+  width: auto;
+  height: 100%;
+  background-color: var(--accentTracks);
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.timeLine{
+  position: relative; 
+  width: auto;
+
+  min-width: 85%;
+  max-width: 100%;
+
+  height: 100%;
+  float: left;
+  overflow:hidden;
+}
+
+/**/
+
+.timeLineContainer{
+  position: relative; 
+  width: 100%;
+  height: 200px;
+  float: left;
+  color: var(--text);
+}
+
+.timeLineContainers{
+  width: 100%;
+  height: 100%;
+  height: calc(100%-10px);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.timeLineRow{
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+
+.timelineIcons{
+  vertical-align:middle; 
+  display:table-cell; 
+  font-size: 2em !important;
+  fill: var(--icon);
+}
+
+
+.timelineElement{
+  cursor: pointer;
+}
+
+
+.video{
+  background-color: var(--tlVideo);
+}
+
+.video:hover{
+  background-color: var(--tlVideoHover);
+}
+
+
+.audio{
+  background-color: var(--tlAudio);
+}
+
+.audio:hover{
+  background-color: var(--tlAudioHover);
+}
+
+
+.text{
+  background-color: var(--tlText);  
+}
+
+.text:hover{
+  background-color: var(--tlTextHover);  
+}
+
+.transition{
+  background-color: var(--tlTransition);
+}
+
+.transition:hover{
+  background-color: var(--tlTransitionHover);
+}
+
+
+.effect{
+  background-color: var(--tlEffect);
+}
+
+.effect:hover{
+  background-color: var(--tlEffectHover);
+}
+
+
+
+
+.timelinePlaceholder{
+  visibility: hidden;
+}
+
+input{
+  color: white !important;
+  background: var(--icon);
+}
+
+select{
+  color: white !important;
+  background: var(--icon);
+}
+
+
+.inputContainer{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+
+.settingsButton{
+  float:right;
+}
+
+.settingsButton .active{
+  visibility: visible;
+  opacity: 1;
+}
+
+.settingsIcon {
+  fill: var(--icon); /* Icon color */
+  z-index: 1; /* Ensure the icon is on top of the square */
+  float:right;
+}
+
+.settingsIcon:hover {
+  fill: var(--iconHover);
+}
+
+
+.propertyPanels{
+  color: var(--text);
+}
+
+.textProperty{
+  margin-top: 15px;
+}
+
+.textComponentContainer{
+  color: black;
+  font-size: 5em;
+  opacity: 80%;
+}
+
+.svgIcons{
+  width: 90%;
+  color: white;
+}
+
+.aspectRatio{
+  filter: invert(1);
+}
+
+.svgIcons:hover{
+  opacity: 80%; 
+  width: 90%;
+  filter: brightness(0) invert(1); /* makes it white*/
+}
+
+
+.component:hover .svgIcons{
+  filter: brightness(0) invert(1); /* makes it white*/
+}
+
+
+.playHead{
+  position:absolute;
+  z-index: 3;
+  margin-left: 0%;
+
+  animation-name: timelineAnimation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+
+@keyframes timelineAnimation {
+  from {margin-left: 0%;}
+  to {margin-left: 100%;}
+}
+
+
+
+
+
+.tooltip{
+  visibility: hidden;
+  opacity: 0;
+  color: black;
+  font-size: 20px;
+  background-color: var(--icon);
+  width: auto;
+  padding: 2px;
+  z-index: 1;
+  position: relative;
+  display: inline-block;
+}
+
+.ttSettings{
+  right: 5px;
+}
+
+.tooltipRight{
+  left: 105%;
+}
+
+.tooltipTop{
+  bottom: 40px;
+}
