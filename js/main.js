@@ -2,7 +2,6 @@ var activePanel = ""; // media, text, effects, transition
 var activeProperty = "" // Text, effect
 var time = 0;
 var head = false;
-var settingsOpen = false;
 
 setInterval(updateTime, 700);
 
@@ -45,17 +44,10 @@ function deselectAllTimeLine(){
 
 
 function settingsMenu(){
-    if (settingsOpen){
-        removeSettingsMenu()
-    }
-    else{
-        settingsOpen = true;
-        document.getElementById("settingsMenu").style.display = "block";
-    }
+    document.getElementById("settingsMenu").style.display = "block";
 }
 
 function removeSettingsMenu(){
-    settingsOpen = false;
     document.getElementById("settingsMenu").style.display = "none";
 }
 
@@ -64,20 +56,18 @@ function removeSettingsMenu(){
 
 function timelineSelect(id){
     deselectAllTimeLine();
-    document.getElementById(id).style.outline = "2px solid white";
+    document.getElementById(id).style.outline = "3px solid red";
 }
 
 
 function toggleHead(){
     let playHeadState = document.getElementsByClassName("playHead")[0]
     if (playHeadState.style.animationPlayState==="running"){
-        playHeadState.style.cssText = "margin-left: -0.5%;";
         playHeadState.style.animationPlayState = "paused";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
         head = false;
     }
     else{
-        playHeadState.style.cssText = "margin-left: -0.5%;";
         playHeadState.style.animationPlayState = "running";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-pause";
         head = true;
@@ -85,7 +75,6 @@ function toggleHead(){
 }
 
 function stopHead(){    
-    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
     document.getElementsByClassName("playHead")[0].style.animation  = "none";
     document.getElementsByClassName("playHead")[0].offsetHeight;
     document.getElementsByClassName("playHead")[0].style.animation  = null;
@@ -97,29 +86,7 @@ function stopHead(){
     setTime();
 }
 
-function skipBackward(){
-    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
-    document.getElementsByClassName("playHead")[0].style.animation  = "none";
-    document.getElementsByClassName("playHead")[0].offsetHeight;
-    document.getElementsByClassName("playHead")[0].style.animation  = null;
-    if (head){
-        document.getElementsByClassName("playHead")[0].style.animationPlayState = "running";
-    }
-    time = 0;
-    setTime();
-}
-function skipForward(){
-    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: 95% !important"; // Hacky way of stopping head animation at the end
-    document.getElementsByClassName("playHead")[0].style.animation = "none";
-    document.getElementsByClassName("playHead")[0].offsetHeight;
-    document.getElementsByClassName("playHead")[0].style.animation  = null;
-    document.getElementsByClassName("playHead")[0].style.animationPlayState = "paused";
-    document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
 
-    head = false;
-    time = 97;
-    setTime();
-}
 
 
 function togglePropertyPanel(panel){
@@ -212,12 +179,7 @@ function load(){
             event.preventDefault();
             alert("Saved");
         }
-        if (event.shiftKey && event.ctrlKey && event.key === 'Z'){
-            alert("redo last action");
-        }
-        if (event.ctrlKey && event.key === 'z') {
-            alert("undo last action");
-        }
+
     });
     
     setProjectTitleFromURLParams();
@@ -268,7 +230,6 @@ function resizeCanvasByRatio(widthRatio, heightRatio){
 }
 
 
-
 /**
  * simple helper method to easily set the time of the view time 
  */
@@ -276,7 +237,6 @@ function setTime(){
     
     var minute = Math.floor(time / 60);
     var second = time % 60;
-
     var text = "";
 
     if(minute<10){
@@ -288,19 +248,27 @@ function setTime(){
     if(second<10){
         text += "0"
     }
-
     text = text + second + " / 01:37";
-
     document.getElementById("viewTime").textContent = text;
 }
 
 
 
 function updateTime(){
-
 if(head)
     time++;
 
     setTime(time);
 }
 
+
+// creating input on-the-fly
+function selectFile(){
+    var input = $(document.createElement("input"));
+    input.attr("type", "file");
+    // add onchange handler if you wish to get the file
+    input.on("change", function () {
+        alert("Media Added: " + this.files[0].name);
+    }).click(); // opening dialog
+    return false; // avoiding navigation
+}
