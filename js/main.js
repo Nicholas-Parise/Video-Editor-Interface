@@ -2,6 +2,7 @@ var activePanel = ""; // media, text, effects, transition
 var activeProperty = "" // Text, effect
 var time = 0;
 var head = false;
+var settingsOpen = false;
 
 setInterval(updateTime, 700);
 
@@ -44,10 +45,17 @@ function deselectAllTimeLine(){
 
 
 function settingsMenu(){
-    document.getElementById("settingsMenu").style.display = "block";
+    if (settingsOpen){
+        removeSettingsMenu()
+    }
+    else{
+        settingsOpen = true;
+        document.getElementById("settingsMenu").style.display = "block";
+    }
 }
 
 function removeSettingsMenu(){
+    settingsOpen = false;
     document.getElementById("settingsMenu").style.display = "none";
 }
 
@@ -63,11 +71,13 @@ function timelineSelect(id){
 function toggleHead(){
     let playHeadState = document.getElementsByClassName("playHead")[0]
     if (playHeadState.style.animationPlayState==="running"){
+        playHeadState.style.cssText = "margin-left: -0.5%;";
         playHeadState.style.animationPlayState = "paused";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
         head = false;
     }
     else{
+        playHeadState.style.cssText = "margin-left: -0.5%;";
         playHeadState.style.animationPlayState = "running";
         document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-pause";
         head = true;
@@ -75,6 +85,7 @@ function toggleHead(){
 }
 
 function stopHead(){    
+    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
     document.getElementsByClassName("playHead")[0].style.animation  = "none";
     document.getElementsByClassName("playHead")[0].offsetHeight;
     document.getElementsByClassName("playHead")[0].style.animation  = null;
@@ -86,7 +97,29 @@ function stopHead(){
     setTime();
 }
 
+function skipBackward(){
+    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
+    document.getElementsByClassName("playHead")[0].style.animation  = "none";
+    document.getElementsByClassName("playHead")[0].offsetHeight;
+    document.getElementsByClassName("playHead")[0].style.animation  = null;
+    if (head){
+        document.getElementsByClassName("playHead")[0].style.animationPlayState = "running";
+    }
+    time = 0;
+    setTime();
+}
+function skipForward(){
+    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: 95% !important"; // Hacky way of stopping head animation at the end
+    document.getElementsByClassName("playHead")[0].style.animation = "none";
+    document.getElementsByClassName("playHead")[0].offsetHeight;
+    document.getElementsByClassName("playHead")[0].style.animation  = null;
+    document.getElementsByClassName("playHead")[0].style.animationPlayState = "paused";
+    document.getElementById("togglePlaybackButton").className = "glyphicon glyphicon-play";
 
+    head = false;
+    time = 97;
+    setTime();
+}
 
 
 function togglePropertyPanel(panel){
@@ -179,7 +212,12 @@ function load(){
             event.preventDefault();
             alert("Saved");
         }
-
+        if (event.shiftKey && event.ctrlKey && event.key === 'Z'){
+            alert("redo last action");
+        }
+        if (event.ctrlKey && event.key === 'z') {
+            alert("undo last action");
+        }
     });
     
     setProjectTitleFromURLParams();
