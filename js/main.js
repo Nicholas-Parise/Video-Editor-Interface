@@ -64,7 +64,7 @@ function removeSettingsMenu(){
 
 function timelineSelect(id){
     deselectAllTimeLine();
-    document.getElementById(id).style.outline = "2px solid white";
+    document.getElementById(id).style.outline = "3px solid red";
 }
 
 
@@ -84,8 +84,8 @@ function toggleHead(){
     }
 }
 
-function stopHead(){    
-    document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
+function stopHead(){
+    playHeadState.style.cssText = "margin-left: -0.5%;";    
     document.getElementsByClassName("playHead")[0].style.animation  = "none";
     document.getElementsByClassName("playHead")[0].offsetHeight;
     document.getElementsByClassName("playHead")[0].style.animation  = null;
@@ -96,6 +96,7 @@ function stopHead(){
     time = 0;
     setTime();
 }
+
 
 function skipBackward(){
     document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: -0.5%;";
@@ -108,6 +109,7 @@ function skipBackward(){
     time = 0;
     setTime();
 }
+
 function skipForward(){
     document.getElementsByClassName("playHead")[0].style.cssText = "margin-left: 95% !important"; // Hacky way of stopping head animation at the end
     document.getElementsByClassName("playHead")[0].style.animation = "none";
@@ -120,6 +122,7 @@ function skipForward(){
     time = 97;
     setTime();
 }
+
 
 
 function togglePropertyPanel(panel){
@@ -204,6 +207,7 @@ function helpToggle(){
         });
     }
 }
+
 function load(){
     // Add shortcuts to this listener
     document.addEventListener('keydown', function(event) {
@@ -218,6 +222,7 @@ function load(){
         if (event.ctrlKey && event.key === 'z') {
             alert("undo last action");
         }
+
     });
     
     setProjectTitleFromURLParams();
@@ -268,7 +273,6 @@ function resizeCanvasByRatio(widthRatio, heightRatio){
 }
 
 
-
 /**
  * simple helper method to easily set the time of the view time 
  */
@@ -276,7 +280,6 @@ function setTime(){
     
     var minute = Math.floor(time / 60);
     var second = time % 60;
-
     var text = "";
 
     if(minute<10){
@@ -288,19 +291,27 @@ function setTime(){
     if(second<10){
         text += "0"
     }
-
     text = text + second + " / 01:37";
-
     document.getElementById("viewTime").textContent = text;
 }
 
 
 
 function updateTime(){
-
 if(head)
     time++;
 
     setTime(time);
 }
 
+
+// creating input on-the-fly
+function selectFile(){
+    var input = $(document.createElement("input"));
+    input.attr("type", "file");
+    // add onchange handler if you wish to get the file
+    input.on("change", function () {
+        alert("Media Added: " + this.files[0].name);
+    }).click(); // opening dialog
+    return false; // avoiding navigation
+}

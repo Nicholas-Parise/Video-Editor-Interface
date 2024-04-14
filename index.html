@@ -4,6 +4,9 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/toggle.css" rel="stylesheet" />
+    <link href="./css/slider.css" rel="stylesheet" />
+    <link href="./css/editor.css" rel="stylesheet" />
     <script src="js/main.js"></script>
     <title>Video Editor</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -69,8 +72,8 @@
                 </button>
             </div>
 
-            <div class="dropdown">
-                <button class="dropbtn" onclick="alert('redo last action')">
+            <div class="dropdown" onclick="alert('redo last action')">
+                <button class="dropbtn">
                     <img class="svgIcons" src="icons/redo.svg">
                 </button>
             </div>
@@ -187,14 +190,10 @@
                     <div>
                         <div class="component" id="transitionsComponent" onclick="toggleComponentPanel('transition');">
                             <span class ="tooltip" style="width: 140px; margin-left: 80px; margin-top: 20px">Add a transition to blend video clips together</span>
-                            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                            <svg class="componentIcon" viewBox="-3.71 0 122.88 122.88" xml:space="preserve">
-                                <g>
-                                    <path class="st0"
-                                        d="M108.07,15.56L5.7,52.84L0,37.22L102.37,0L108.07,15.56L108.07,15.56z M115.46,122.88H5.87V53.67h109.59 V122.88L115.46,122.88z M101.79,15.65V2.36l-7.23,2.61v13.34L101.79,15.65L101.79,15.65L101.79,15.65z M87.39,20.93V7.59 l-7.26,2.58v13.45L87.39,20.93L87.39,20.93z M72.49,26.07v-13.2l-7.26,2.61v13.26L72.49,26.07L72.49,26.07L72.49,26.07z M113.43,68.32l-4.56-12.54h-7.73l4.56,12.54H113.43L113.43,68.32z M97.64,68.32l-4.56-12.54h-7.76l4.59,12.54H97.64L97.64,68.32z M57.98,31.69V18.32l-7.25,2.61v13.34L57.98,31.69L57.98,31.69z M82.41,68.32l-4.56-12.54h-7.73l4.56,12.54H82.41L82.41,68.32z M43.08,36.8V23.54l-7.34,2.61v13.34L43.08,36.8L43.08,36.8z M66.62,68.32l-4.56-12.54h-7.75l4.56,12.54H66.62L66.62,68.32z M28.82,42.28V28.9l-7.31,2.7v13.26L28.82,42.28L28.82,42.28L28.82,42.28z M51.06,68.32L46.5,55.78h-7.73l4.56,12.54H51.06 L51.06,68.32z M13.84,47.39V34.13l-7.26,2.58v13.37L13.84,47.39L13.84,47.39z M35.36,68.32l-4.64-12.54l-7.67,0l4.48,12.54H35.36 L35.36,68.32z M19.96,68.32l-4.64-12.54l-7.73,0l4.56,12.54H19.96L19.96,68.32z" />
-                                </g>
-                            </svg>
+                            
+                            <img class="svgIcons componentIcon noHover" src="icons/transition.svg">
                             <div class="componentText">Transitions</div>
+
                         </div>
                     </div>
                 </div>
@@ -204,15 +203,7 @@
                     <div class="componentPanel" id="mediaPanel">
                         <div class="accent svgIcon importMedia"
                             style="color: black; border-radius: 25px; padding: 5px; font-size: 30px; margin: 10px;"
-                            onclick='             // MOVE THIS TO A JS FILE????
-                            // creating input on-the-fly
-                            var input = $(document.createElement("input"));
-                            input.attr("type", "file");
-                            // add onchange handler if you wish to get the file
-                            input.on("change", function () {
-                                alert("Media Added: " + this.files[0].name);
-                            }).click(); // opening dialog
-                            return false; // avoiding navigation'>
+                            onclick='selectFile()'>
                             Import Media
                             <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
                             <svg class="componentIcon" style="fill:black;" width="50px" height="50px" viewBox="0 0 507.177 507.177"
@@ -275,7 +266,7 @@
                     </div>
 
                     <div class="componentPanel" id="textPanel" style="display: none;">
-                        <h1>Text</h1>
+                        <h1 class="noHover">Text</h1>
 
                         <div class="placeholderContainer">
                             <div>
@@ -341,7 +332,7 @@
                     </div>
 
                     <div class="componentPanel" id="effectsPanel" style="display: none;">
-                        <h1>Effects</h1>
+                        <h1 class="noHover">Effects</h1>
 
                         <div class="placeholderContainer">
                             <div>
@@ -451,7 +442,7 @@
                     </div>
 
                     <div class="componentPanel" id="transitionsPanel" style="display: none;">
-                        <h1>Transitions</h1>
+                        <h1 class="noHover">Transitions</h1>
 
                         <div class="placeholderContainer">
                             <div>
@@ -604,7 +595,7 @@
 
             <div class="properties">
                 <div width="100%">
-                    <h1>Properties</h1>
+                    <h1 class="noHover">Properties</h1>
                 </div>
 
                 <div class="propertyPanels" id="videoProperties">
@@ -848,7 +839,7 @@
                     </div>
                 </div>
 
-                <div class="timeLineTitles">
+                <div class="timeLineTitles noHover">
 
                     <div style="min-width: 100%;" class="timeLineContainers">
 
@@ -900,7 +891,7 @@
                         </div>
 
                         <div class="timeLineRow">
-                            <div class="video timelineElement" id="video1" style="width: 25%; margin-left: 22%; outline:2px solid white;"
+                            <div class="video timelineElement" id="video1" style="width: 25%; margin-left: 22%; outline:3px solid red;"
                                 onclick="togglePropertyPanel('video'); timelineSelect(this.id);">
                                 <div class="noHover timelineIcons glyphicon glyphicon-film">&nbsp;</div>
                             </div>
@@ -969,7 +960,7 @@
         <div class="settingsMenu" id="settingsMenu">
 
             <div>
-                <h1 class="settingsTitle">Settings</h1>
+                <h1 class="settingsTitle noHover">Settings</h1>
             </div>
 
             <button class="settingsMenuClose dropbtn settingsTitle " onclick="removeSettingsMenu()">
@@ -984,7 +975,7 @@
                         <span class="toggle round"></span>
                     </label>
                 </div>
-                <h4 style="display: inline-block; ">auto save</h4>
+                <h4 class="noHover" style="display: inline-block; ">auto save</h4>
             </div>
 
 
@@ -996,7 +987,7 @@
                         <span class="toggle round"></span>
                     </label>
                 </div>
-                <h4 style="display: inline-block; ">hardware acceleration</h4>
+                <h4 class="noHover" style="display: inline-block; ">hardware acceleration</h4>
             </div>
 
 
@@ -1008,7 +999,7 @@
                         <span class="toggle round"></span>
                     </label>
                 </div>
-                <h4 style="display: inline-block;">dark mode</h4>
+                <h4 class="noHover"style="display: inline-block;">dark mode</h4>
             </div>
 
 
