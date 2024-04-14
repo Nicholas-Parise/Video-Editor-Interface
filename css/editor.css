@@ -520,7 +520,7 @@ select{
 
 
 @keyframes timelineAnimation {
-  from {margin-left: 0%;}
+  from {margin-left: -0.5%;}
   to {margin-left: 100%;}
 }
 
