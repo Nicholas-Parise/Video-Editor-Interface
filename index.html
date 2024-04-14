@@ -64,13 +64,13 @@
 
 
             <div class="dropdown">
-                <button class="dropbtn">
+                <button class="dropbtn" onclick="alert('undo last action')">
                     <img class="svgIcons" src="icons/undo.svg">
                 </button>
             </div>
 
             <div class="dropdown">
-                <button class="dropbtn">
+                <button class="dropbtn" onclick="alert('redo last action')">
                     <img class="svgIcons" src="icons/redo.svg">
                 </button>
             </div>
@@ -570,7 +570,7 @@
                 </div>
 
                 <div class="TimeLinePlayback">
-                    <div class="TimeButton">
+                    <div onclick="skipBackward();" class="TimeButton">
                         <span class="glyphicon glyphicon-fast-backward"></span>
                         <span class="tooltip tooltipTop">Skip Backward</span>
                     </div>
@@ -594,7 +594,7 @@
                         <span class="tooltip">Fast Forward</span>
                     </div>
 
-                    <div class="TimeButton">
+                    <div onclick="skipForward();" class="TimeButton">
                         <span class="glyphicon glyphicon-fast-forward"></span>
                         <span class="tooltip tooltipTop">Skip Forward</span>
                     </div>
