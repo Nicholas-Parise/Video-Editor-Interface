@@ -216,12 +216,40 @@ function load(){
             event.preventDefault();
             alert("Saved");
         }
-        if (event.shiftKey && event.ctrlKey && event.key === 'Z'){
+        if ((event.shiftKey && event.ctrlKey && event.key === 'Z') || (event.ctrlKey && event.key === 'y')){
             alert("redo last action");
         }
         if (event.ctrlKey && event.key === 'z') {
             alert("undo last action");
         }
+
+        if (event.ctrlKey && event.key === 'c') {
+            alert("copy selected timeline element");
+        }
+
+        if (event.ctrlKey && event.key === 'v') {
+            alert("paste selected timeline element");
+        }
+
+        if (event.ctrlKey && event.key === 'x') {
+            alert("cut selected timeline element");
+        }
+
+        if (event.ctrlKey && event.key === 'a') {
+            event.preventDefault();
+            alert("select all timeline elements");
+        }
+
+        if (event.ctrlKey && event.key === 'h') {
+            event.preventDefault();
+            alert("home");
+        }
+
+        if (event.ctrlKey && event.key === 'o') {
+            event.preventDefault();
+            alert("open");
+        }
+
 
     });
     

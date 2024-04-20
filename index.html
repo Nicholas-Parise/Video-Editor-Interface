@@ -21,7 +21,7 @@
             <div class="dropdown">
                 <button class="dropbtn">File</button>
                 <div class="dropdown-content">
-                    <a href="homePage.html" target="_self">Home</a>
+                    <a href="homePage.html" target="_self">Home&emsp;(ctrl+h)</a>
                     <a href="" target="_blank">New</a>
                     <a onclick='             // MOVE THIS TO A JS FILE????
                         // creating input on-the-fly
@@ -29,8 +29,8 @@
                         input.attr("type", "file");
                         // add onchange handler if you wish to get the file
                         input.trigger("click"); // opening dialog
-                        return false; // avoiding navigation'>Open</a>
-                    <a onclick="alert('Saved')">Save</a>
+                        return false; // avoiding navigation'>Open&emsp;(ctrl+o)</a>
+                    <a onclick="alert('Saved')">Save&emsp;(ctrl+s)</a>
                     <a onclick='             // MOVE THIS TO A JS FILE????
                         // creating input on-the-fly
                         var input = $(document.createElement("input"));
@@ -44,11 +44,11 @@
             <div class="dropdown">
                 <button class="dropbtn">Edit</button>
                 <div class="dropdown-content">
-                    <a href="#" onclick="alert('undo last action')">Undo</a>
-                    <a href="#" onclick="alert('redo last action')">Redo</a>
-                    <a href="#" onclick="alert('cut selected object')">Cut</a>
-                    <a href="#" onclick="alert('copy selected object')">Copy</a>
-                    <a href="#" onclick="alert('paste object')">Paste</a>
+                    <a href="#" onclick="alert('undo last action')">Undo&emsp;(ctrl+z)</a>
+                    <a href="#" onclick="alert('redo last action')">Redo&emsp;(ctrl+y)</a>
+                    <a href="#" onclick="alert('cut selected object')">Cut&emsp; &nbsp; (ctrl+x)</a>
+                    <a href="#" onclick="alert('copy selected object')">Copy&emsp;(ctrl+c)</a>
+                    <a href="#" onclick="alert('paste object')">Paste&emsp;(ctrl+v)</a>
                 </div>
             </div>
 
