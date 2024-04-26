@@ -34,13 +34,7 @@ function hideAllPropertyPanels(){
 }
 
 
-function deselectAllTimeLine(){
-    const panels = document.querySelectorAll(".timelineElement");
-    console.log(panels.length)
-    for(var panel of panels){
-        panel.style.outline = "none";
-    }
-}
+
 
 
 
@@ -64,8 +58,20 @@ function removeSettingsMenu(){
 
 function timelineSelect(id){
     deselectAllTimeLine();
-    document.getElementById(id).style.outline = "3px solid red";
+    //document.getElementById(id).style.outline = "3px solid red";
+    document.getElementById(id).classList.add("borderBlink");
 }
+
+function deselectAllTimeLine(){
+    const panels = document.querySelectorAll(".timelineElement");
+    console.log(panels.length)
+    for(var panel of panels){
+        panel.classList.remove("borderBlink");
+        //panel.style.outline = "none";
+    }
+}
+
+
 
 
 function toggleHead(){

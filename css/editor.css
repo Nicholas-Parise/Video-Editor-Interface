@@ -526,6 +526,18 @@ select{
 
 
 
+.borderBlink {
+  outline: 3px #ff0000 solid;
+  outline-offset: -1px;
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes blink { 100% { outline-color:#FFFFFF00 ; }  }
+
+
+
 
 
 .tooltip{
